@@ -12,3 +12,18 @@ C:\Users\WRIGEG1\OneDrive - Otago Polytechnic\FamilyFued\obj\Debug\net8.0\refint
 C:\Users\WRIGEG1\OneDrive - Otago Polytechnic\FamilyFued\obj\Debug\net8.0\FamilyFued.pdb
 C:\Users\WRIGEG1\OneDrive - Otago Polytechnic\FamilyFued\obj\Debug\net8.0\FamilyFued.genruntimeconfig.cache
 C:\Users\WRIGEG1\OneDrive - Otago Polytechnic\FamilyFued\obj\Debug\net8.0\ref\FamilyFued.dll
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\bin\Debug\net8.0\FamilyFued.exe
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\bin\Debug\net8.0\FamilyFued.deps.json
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\bin\Debug\net8.0\FamilyFued.runtimeconfig.json
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\bin\Debug\net8.0\FamilyFued.dll
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\bin\Debug\net8.0\FamilyFued.pdb
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.AssemblyInfoInputs.cache
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.AssemblyInfo.cs
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.csproj.CoreCompileInputs.cache
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.sourcelink.json
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.dll
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\refint\FamilyFued.dll
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.pdb
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\FamilyFued.genruntimeconfig.cache
+C:\Users\3ddi3\Documents\Family-Feud\FamilyFued\obj\Debug\net8.0\ref\FamilyFued.dll
