@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FamilyFued")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+657948ec1186fdbf98a4113d399def7e44147cbb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9fb2b6bd5c83cae2047c50698ce2d620688b559")]
 [assembly: System.Reflection.AssemblyProductAttribute("FamilyFued")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FamilyFued")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

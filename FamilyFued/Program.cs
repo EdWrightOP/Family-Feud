@@ -38,7 +38,7 @@ namespace FamilyFued
             do
             {
                 Console.Clear();
-                Console.Write("The menu options are:\n1. Play 1\n2  View Player\n3. Change Interest\n3. Exit\n\n\n\nYour Choice: ");
+                Console.Write("The menu options are:\n1. Play 1\n2  View Player\n3. Change Interest\n0. Exit\n\n\n\nYour Choice: ");
 
                 choice = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
@@ -57,9 +57,6 @@ namespace FamilyFued
                     case 3:
                         Interest();
                         break;
-                    case 4:
-                        four();
-                        break;
                     default:
                         Console.WriteLine("Error. Enter a number 0-4");
                         Console.ReadLine();
@@ -71,7 +68,9 @@ namespace FamilyFued
         }
         static void names()
         {
+            
             int[] contestantNumbers = new int[10];
+            string[] finalists = new string[10];
             Random random = new Random();
             for (int i = 0; i< 10; i++)
             {
@@ -81,11 +80,13 @@ namespace FamilyFued
                     randomNumber = random.Next(1, 26);
                 } while (Array.IndexOf(contestantNumbers, randomNumber) != -1);
                 contestantNumbers[i] = randomNumber;
+                finalists[i] = details[randomNumber].firstName;
                 Console.WriteLine($"{details[randomNumber].firstName} {details[randomNumber].lastName}");
 
             }
-            int first = random.Next(1,11);
-            Console.WriteLine($"\n\n{details[first].firstName} will go first\n\n\nPress ENTER to continue");
+            int first = random.Next(finalists.Length);
+
+            Console.WriteLine($"\n\n{finalists[first]} will go first\n\n\nPress ENTER to continue");
             Console.ReadLine();
             play();
 
@@ -94,7 +95,7 @@ namespace FamilyFued
         }
         static void start()
         {
-            StreamReader sr = new StreamReader(@"C:\Users\3ddi3\Documents\Family-Feud\FamilyFeud.txt");
+            StreamReader sr = new StreamReader(@"FamilyFeud.txt");
             Random rand = new Random();
 
 
@@ -111,9 +112,9 @@ namespace FamilyFued
         }
         static void play()
         {//play game
-
+            //add loop 4 times
             int points = 0;
-            StreamReader sr = new StreamReader(@"C:\Users\3ddi3\Documents\Family-Feud\questions.txt");
+            StreamReader sr = new StreamReader(@"questions.txt");
             for (int i = 1; i < 3; i++)
             {
                 bool[] answerGuessed = new bool[3]; // Track if each answer has been guessed
@@ -129,7 +130,7 @@ namespace FamilyFued
 
                 int guess = 0;
                 int correctAnswersCount = 0;
-                Console.WriteLine(game[i].answer1);
+                
                 do
                 {
                     string anwser = Console.ReadLine().ToLower();
@@ -150,22 +151,41 @@ namespace FamilyFued
                         }
 
                     }
-                    else if (anwser == game[i].answer2 && !answerGuessed[1])
+                    else if (anwser == game[i].answer2)
                     {
-                        Thread.Sleep(1000);
-                        points += game[i].points1;
-                        Console.WriteLine(game[i].points2);
-                        answerGuessed[0] = true;
-                        correctAnswersCount++;
+                        if (!answerGuessed[1])
+                        {
+                            Thread.Sleep(1000);
+                            points += game[i].points1;
+                            Console.WriteLine(game[i].points2);
+                            answerGuessed[1] = true;
+                            correctAnswersCount++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("you have guessed this already");
+                        }
 
                     }
-                    else if (anwser == game[i].answer3 && !answerGuessed[2])
+                    else if (anwser == game[i].answer3)
                     {
-                        Thread.Sleep(1000);
-                        points += game[i].points1;
-                        Console.WriteLine(game[i].points3);
-                        answerGuessed[0] = true;
-                        correctAnswersCount++;
+                        if (!answerGuessed[2])
+                        {
+                            Thread.Sleep(1000);
+                            points += game[i].points1;
+                            Console.WriteLine(game[i].points3);
+                            answerGuessed[2] = true;
+                            correctAnswersCount++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("you have guessed this already");
+                        }
+                    }
+
+                    else if (anwser == ""|| anwser == " ")
+                    {
+                        Console.WriteLine("Please enter a word");
                     }
                     else
                     {
@@ -209,7 +229,7 @@ namespace FamilyFued
         static void two()
         {
 
-            //write to file
+            
             for (int i = 0; i < details.Length - 1; i++)
             {
                 for (int pos = 0; pos < details.Length - 1; pos++)
@@ -227,10 +247,10 @@ namespace FamilyFued
             for (int i = 0; i < details.Length; i++)
             {
 
-                Console.Write($"| {details[i].firstName}".PadRight(20));
-                Console.Write(details[i].lastName.PadRight(20));
-                Console.WriteLine($"{details[i].interest.PadRight(5)} |");
-                Console.WriteLine("-----------------------------------------------------------");
+                Console.Write($"| {char.ToUpper(details[i].firstName[0]) + details[i].firstName.Substring(1).PadRight(20)}");
+                Console.Write(char.ToUpper(details[i].lastName[0]) + details[i].lastName.Substring(1).PadRight(20));
+                Console.WriteLine($"{char.ToUpper(details[i].interest[0]) + details[i].interest.Substring(1).PadRight(20)}|");
+                Console.WriteLine("-------------------------------------------------------------");
             }
             Console.WriteLine("1. Change a Contestants Interest?\n0. Back to Menu");
             int num = Convert.ToInt32(Console.ReadLine());
@@ -247,8 +267,8 @@ namespace FamilyFued
         {
             StreamWriter sw = new StreamWriter(@"FamilyFeud.txt");
 
-            Console.WriteLine("Which contestant do you want to edit?");
-            string change = Console.ReadLine();
+            Console.WriteLine("Please enter the First then Last name of the contestant you wish to edit");
+            string change = Console.ReadLine().ToLower();
             string[] split = change.Split(' ');
             string changeFirstName = split[0];
             string changeLastName = split[1];
@@ -259,14 +279,21 @@ namespace FamilyFued
                     Console.Write($"What is {details[i].firstName} {details[i].lastName} new interest:");
                     details[i].interest = Console.ReadLine();
                     Console.Write($"{details[i].firstName} {details[i].lastName}'s new interest is {details[i].interest}");
-                    sw.WriteLine(details[i].interest);
-                    Console.WriteLine(details[i].interest);
+                    
+                    
 
                 }
+            }
+            for (int i = 0;i < details.Length; i++) 
+            {
+                sw.WriteLine(details[i].firstName.ToLower());
+                sw.WriteLine(details[i].lastName.ToLower());
+                sw.WriteLine(details[i].interest.ToLower());
             }
             sw.Close();
 
             Console.ReadLine();
+            start();
         }
 
         static void four()
