@@ -204,7 +204,30 @@ namespace FamilyFued
                         Console.WriteLine("");
                         if (wrongGuess == 3)
                         {
+
+                            if (answerGuessed[0] == false)
+                            {
+                                Console.WriteLine("");
+                                Console.WriteLine(game[i].answer1);
+                                Console.WriteLine(game[i].points1);
+                            }
+
+                            if (answerGuessed[1] == false)
+                            {
+                                Console.WriteLine("");
+                                Console.WriteLine(game[i].answer2);
+                                    Console.WriteLine(game[i].points2);
+                               
+                            }
+                            if (answerGuessed[2] == false)
+                            {
+                                Console.WriteLine("");
+                                Console.WriteLine(game[i].answer3);
+                                Console.WriteLine(game[i].points3);
+                            }
+
                             Console.WriteLine("Game Over");
+
                         }
                     }
                    
