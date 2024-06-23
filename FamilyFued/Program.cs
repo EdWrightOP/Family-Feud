@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace FamilyFued
@@ -112,10 +112,11 @@ namespace FamilyFued
         }
         static void play()
         {//play game
-            //add loop 4 times
+           
             int points = 0;
+            int i = 0;
             StreamReader sr = new StreamReader(@"questions.txt");
-            for (int i = 1; i < 3; i++)
+            for (i = 1; i < 5; i++)
             {
                 bool[] answerGuessed = new bool[3]; // Track if each answer has been guessed
                 Console.Clear();
@@ -128,9 +129,9 @@ namespace FamilyFued
                 game[i].answer3 = sr.ReadLine();
                 game[i].points3 = Convert.ToInt32(sr.ReadLine());
 
-                int guess = 0;
+                int wrongGuess = 0;
                 int correctAnswersCount = 0;
-                
+            
                 do
                 {
                     string anwser = Console.ReadLine().ToLower();
@@ -189,19 +190,27 @@ namespace FamilyFued
                     }
                     else
                     {
-                        guess++;
-                        Thread.Sleep(1000);
-                        for (int j = 0; j < guess; j++)
-                        {
-                            Console.Write("X");
+                        
+                            wrongGuess++;
+                            Thread.Sleep(1000);
+                            for (int j = 0; j < wrongGuess; j++)
+                            {
+                                Console.Write("X");
 
-                        }
+                            }
+
+
+                        
                         Console.WriteLine("");
+                        if (wrongGuess == 3)
+                        {
+                            Console.WriteLine("Game Over");
+                        }
                     }
+                   
+                } while (wrongGuess != 3&& correctAnswersCount < 3);
 
-                } while (guess != 3&& correctAnswersCount < 3);
-
-                if (guess == 3)
+                if (wrongGuess == 3)
                 {
                     i = 10;
                 }
@@ -213,7 +222,11 @@ namespace FamilyFued
                 }
                 
             }
-                Console.WriteLine("Game Over");
+
+          
+           
+                Console.WriteLine($"You finnished the gmae with {points} Points");
+            
                 Console.ReadLine();
                 
                 sr.Close();
